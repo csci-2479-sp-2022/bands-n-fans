@@ -16,4 +16,5 @@ docker run --rm \
     laravelsail/php81-composer:latest \
     composer install --ignore-platform-reqs
 ```
-6. start up the app: `./vendor/bin/sail up -d`
+6. create app key: `./vendor/bin/sail artisan key:generate`
+7. start up the app: `./vendor/bin/sail up -d`
