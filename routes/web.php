@@ -31,4 +31,8 @@ Route::post('/search-results', function () {
     return redirect('/search-results');
 });
 
+Route::get('/bands', function () {
+    return view('band-list');
+})->middleware(['auth'])->name('bands');
+
 require __DIR__.'/auth.php';
