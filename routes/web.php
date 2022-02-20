@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\RedirectResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,14 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+// For some stupid reason, this did not work 
+// Route::get('/search-results', [SearchController::class, 'index']);
+
+Route::get('/search-results', 'App\Http\Controllers\SearchController@show');
+
+Route::post('/search-results', function () {
+    return redirect('/search-results');
+});
 
 require __DIR__.'/auth.php';
