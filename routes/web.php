@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/profile', function () {
+    return view('account-profile');
+})->middleware(['auth'])->name('account-profile');
 
 // For some stupid reason, this did not work 
 // Route::get('/search-results', [SearchController::class, 'index']);
