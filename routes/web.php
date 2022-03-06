@@ -37,4 +37,5 @@ Route::get('/bands', function () {
     return view('band-list');
 })->middleware(['auth'])->name('bands');
 
+
 require __DIR__.'/auth.php';

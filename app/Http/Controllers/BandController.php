@@ -11,8 +11,5 @@ class BandController extends Controller
             'band-info', 
            );
     
-        // return view('band-info', [
-        //     'band' => Band::findOrFail($id)
-        // ]);
     }
 }
