@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\RedirectResponse;
-
+use App\Http\Controllers\BandController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +17,8 @@ use Illuminate\Http\RedirectResponse;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get ('/bands/{id}', [BandController::class, 'viewBand']);
 
 Route::get('/profile', function () {
     return view('account-profile');
