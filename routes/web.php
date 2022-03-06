@@ -36,3 +36,4 @@ Route::get('/bands', function () {
 })->middleware(['auth'])->name('bands');
 
 require __DIR__.'/auth.php';
+
