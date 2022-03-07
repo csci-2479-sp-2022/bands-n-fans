@@ -18,13 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get ('/bands/{id}', [BandController::class, 'viewBand']);
+Route::get ('/bands/{id?}', [BandController::class, 'viewBand']);
 
 Route::get('/profile', function () {
     return view('account-profile');
 })->middleware(['auth'])->name('account-profile');
 
-// For some stupid reason, this did not work 
+// For some stupid reason, this did not work
 // Route::get('/search-results', [SearchController::class, 'index']);
 
 Route::get('/search-results', 'App\Http\Controllers\SearchController@show');
@@ -36,6 +36,5 @@ Route::post('/search-results', function () {
 Route::get('/bands', function () {
     return view('band-list');
 })->middleware(['auth'])->name('bands');
-
 
 require __DIR__.'/auth.php';

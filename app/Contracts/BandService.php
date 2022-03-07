@@ -1,11 +1,11 @@
 <?php
-namespace App\Contacts;
+namespace App\Contracts;
 
 use App\Models\Band;
 
 interface BandService
 {
-    function getBandById(int $id): Band;
+    function getBandById(int $id): ?Band;
 
     function getBands(string $orderby = 'name', string $direction = 'ascend', int $limit = 10): array;
 
