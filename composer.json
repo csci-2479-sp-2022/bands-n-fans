@@ -49,6 +49,9 @@
         ],
         "test:coverage": [
             "phpunit --coverage-xml ./coverage"
+        ],
+        "test:coverage:text": [
+            "phpunit --coverage-text"
         ]
     },
     "extra": {

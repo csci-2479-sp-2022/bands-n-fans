@@ -46,7 +46,7 @@ class CheckCoverage extends Command
             echo "line coverage: $percentage\n";
             echo "threshold: $threshold\n";
 
-            if ($percentage < $threshold) {
+            if (ceil($percentage) < $threshold) {
                 throw new CoverageException($threshold);
             }
 
