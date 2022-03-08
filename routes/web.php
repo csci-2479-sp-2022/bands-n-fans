@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\BandController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get ('/bands/{id?}', [BandController::class, 'viewBand']);
+Route::controller(BandController::class)->group(function() {
+    Route::get('/bands', 'getBandList')->middleware(['auth'])->name('band-list');
+    Route::get('/bands/{id}', 'viewBand')->middleware(['auth'])->name('band-info');
+});
+
+Route::get('/search-results', [SearchController::class, 'show']);
+
+Route::post('/search-results', function () {
+    return redirect('/search-results');
+});
 
 Route::get('/profile', function () {
     return view('account-profile');
@@ -27,14 +37,8 @@ Route::get('/profile', function () {
 // For some stupid reason, this did not work
 // Route::get('/search-results', [SearchController::class, 'index']);
 
-Route::get('/search-results', 'App\Http\Controllers\SearchController@show');
+//Route::get('/search-results', 'App\Http\Controllers\SearchController@show');
 
-Route::post('/search-results', function () {
-    return redirect('/search-results');
-});
 
-Route::get('/bands', function () {
-    return view('band-list');
-})->middleware(['auth'])->name('bands');
 
 require __DIR__.'/auth.php';

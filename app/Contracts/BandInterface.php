@@ -3,11 +3,11 @@ namespace App\Contracts;
 
 use App\Models\Band;
 
-interface BandService
+interface BandInterface
 {
     function getBandById(int $id): ?Band;
 
-    function getBands(string $orderby = 'name', string $direction = 'ascend', int $limit = 10): array;
+    function getBands(): array;
 
     function searchBandsByName(string $name): array;
 }
