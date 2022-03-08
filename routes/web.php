@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::controller(BandController::class)->group(function() {
     Route::get('/bands', 'getBandList')->middleware(['auth'])->name('band-list');
     Route::get('/bands/{id}', 'viewBand')->middleware(['auth'])->name('band-info');
