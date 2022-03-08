@@ -18,7 +18,10 @@ class BandService implements BandInterface
     }
 
 
-    public function getBands(): array
+    public function getBands(
+        string $orderby = 'name',
+        string $direction = 'asc',
+        int $limit = 5 ): array
     {
         return [
             Band::make([

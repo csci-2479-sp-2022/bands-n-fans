@@ -25,18 +25,4 @@ class BandController extends Controller
             'bands' => $this->bandService->getBands(),
         ]);
     }
-/*
-    private function getBandDetails(int $id)
-    {
-        $band = $this->bandService->getBandById($id);
-
-        if ($band == null) {
-            throw new NotFoundHttpException();
-        }
-
-        return view('band-details', [
-            'band' => $band,
-        ]);
-    }
-*/
 }

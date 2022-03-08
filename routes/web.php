@@ -25,7 +25,7 @@ Route::controller(BandController::class)->group(function() {
     Route::get('/bands/{id}', 'viewBand')->middleware(['auth'])->name('band-info');
 });
 
-Route::get('/search-results', [SearchController::class, 'show']);
+Route::get('/search-results', [SearchController::class, 'searchBandsByName']);
 
 Route::post('/search-results', function () {
     return redirect('/search-results');

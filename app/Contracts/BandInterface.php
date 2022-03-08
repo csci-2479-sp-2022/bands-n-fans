@@ -7,7 +7,10 @@ interface BandInterface
 {
     function getBandById(int $id): ?Band;
 
-    function getBands(): array;
+    function getBands(
+        string $orderby = 'name',
+        string $direction = 'asc',
+        int $limit = 5 ): array;
 
     function searchBandsByName(string $name): array;
 }
