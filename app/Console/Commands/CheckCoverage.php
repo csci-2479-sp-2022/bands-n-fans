@@ -19,7 +19,7 @@ class CheckCoverage extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Check code coverage XML report based on threshold';
 
     /**
      * Create a new command instance.
