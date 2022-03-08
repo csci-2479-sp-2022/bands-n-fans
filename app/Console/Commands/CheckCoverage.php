@@ -42,7 +42,7 @@ class CheckCoverage extends Command
 
         try {
             $xml = simplexml_load_file(__DIR__ . '/../../../coverage/index.xml');
-            $percentage = $xml->project->directory->totals->lines['percent'];
+            $percentage = (float)$xml->project->directory->totals->lines['percent'];
             echo "line coverage: $percentage\n";
             echo "threshold: $threshold\n";
 
@@ -55,8 +55,12 @@ class CheckCoverage extends Command
             echo "{$e->getCoverageMessage($threshold)}\n";
 
             return 1;
-        } catch (\Throwable) {
-            echo "problem loading coverage file\n";
+        } catch (\Throwable $e) {
+            if (str_contains($e->getMessage(), 'simplexml_load_file')) {
+                echo "problem loading coverage file\n";
+            } else {
+                echo "{$e->getMessage()}\n";
+            }
 
             return 1;
         }
