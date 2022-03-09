@@ -20,7 +20,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                    
-                <a href="/bands/1">Band 1</a>
+                <ol>@foreach($bands as $band)
+                    <li>{{$band}}</li>
+                    @endforeach</ol>
+                </div>
                 </div>
             </div>
         </div>
