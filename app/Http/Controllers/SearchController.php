@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contracts\BandInterface;
-use App\Models\Search;
 
 class SearchController extends Controller
 {
