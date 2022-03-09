@@ -16,6 +16,11 @@ class BandController extends Controller
 
     public function viewBand(int $id = null)
     {
+
+        if ($this->bandService->getBandById($id) == null) {
+            throw new NotFoundHttpException();
+        }
+
         return view('band-info', [ 'band' => $this->bandService->getBandById($id) ]);
     }
 
