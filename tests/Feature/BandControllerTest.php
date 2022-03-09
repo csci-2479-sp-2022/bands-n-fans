@@ -5,6 +5,9 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\Band;
+use App\Contracts\BandInterface;
+use Mockery\MockInterface;
 
 class BandControllerTest extends TestCase
 {
@@ -19,7 +22,7 @@ class BandControllerTest extends TestCase
 
         $response->assertStatus(200);
     }
-}
+
 
 private MockInterface $bandServiceSpy;
 
@@ -75,7 +78,8 @@ public function test_return_single_band(){
 
 public function test_return_404(){
 
-    $response = $this->get('/bands/2');
+    $response = $this->get('/bands/3');
 
     $response->assertStatus(404);
+}
 }
