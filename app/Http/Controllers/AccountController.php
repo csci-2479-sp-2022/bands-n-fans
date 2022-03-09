@@ -14,6 +14,8 @@ class AccountController extends Controller
 
     public function show(int $id)
     {
-        return view('account-profile', [ 'user' => $this->userService->getBandsByUserId($id) ]);
+        return view('account-profile', 
+            [ 'user' => $this->userService->getBandsByUserId($id) ]
+        );
     }
 }
