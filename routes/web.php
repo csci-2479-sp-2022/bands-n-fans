@@ -33,6 +33,7 @@ Route::get('/search-results', [SearchController::class, 'searchBandsByName']);
 Route::post('/search-results', function () {
     return redirect('/search-results');
 });
+
 /*
 Route::get('/profile', function () {
     return view('account-profile');
