@@ -24,7 +24,7 @@ Route::get('/', function () {
 });
 
 Route::controller(BandController::class)->group(function() {
-    Route::get('/bands', 'getBandList');
+    Route::get('/bands', 'getBandList')->name('band-list');
     Route::get('/bands/{id}', 'viewBand');
 });
 
