@@ -39,7 +39,7 @@ Route::get('/profile', function () {
     return view('account-profile');
 })->middleware(['auth'])->name('account-profile');
 */
-Route::get('profile', [AccountController::class, 'show'])->middleware(['auth'])->name('account-profile');
+Route::get('profile', [AccountController::class, 'showUserBands'])->middleware(['auth'])->name('account-profile');
 
 // For some stupid reason, this did not work
 // Route::get('/search-results', [SearchController::class, 'index']);

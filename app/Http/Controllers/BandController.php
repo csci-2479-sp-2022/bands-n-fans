@@ -26,8 +26,6 @@ class BandController extends Controller
 
     public function getBandList()
     {
-        return view('band-list', [
-            'bands' => $this->bandService->getBands(),
-        ]);
+        return view('band-list', [ 'bands' => $this->bandService->getBands() ]);
     }
 }

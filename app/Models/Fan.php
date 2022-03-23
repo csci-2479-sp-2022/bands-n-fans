@@ -9,6 +9,19 @@ class Fan extends Model
 {
     use HasFactory;
 
+        /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'bandID',
+        'userID',
+        'fanSince',
+    ];
+
+    
+
     public function band()
     {
         return $this->belongsToMany(Band::class);

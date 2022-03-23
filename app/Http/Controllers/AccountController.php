@@ -12,8 +12,13 @@ class AccountController extends Controller
     )
     { }
 
-    public function show()
+    public function showUserBands(int $id = null)
     {
-        return view('account-profile',);
+
+        if ($this->acccountService->getBandsByUserId($id) == null) {
+            throw new NotFoundHttpException();
+        }
+
+        return view('account-profile', [ 'bands' => $this->acccountService->getBandsByUserId($id) ]);
     }
 }

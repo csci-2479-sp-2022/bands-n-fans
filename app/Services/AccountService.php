@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Contracts\UserInterface;
 use App\Models\User;
+use App\Models\Fan;
 
 class AccountService implements UserInterface
 {
@@ -10,19 +11,51 @@ class AccountService implements UserInterface
     {
         foreach (self::getUser() as $user) {
             if ($user->id === $id) {
-                return $user;
+
+                foreach (self::getFans() as $fans)
+                    if ($fans->id === $id) {
+                // return $user;
+                // need to use $user here to then find any bands that the user is a fan of, and return the bands
             }
         }
-
+    }
         return null;
     }
 
-    public function getUser(): array
+    public function getUser(
+        string $orderby = 'name',
+        string $direction = 'asc',
+        int $limit = 5 ): array
     {
         return [
-            new User(1, '', '', ''),
-            new User(2, '', '', ''),
-            new User(3, '', '', ''),
+            User::make([
+                'id' => 1,
+                'name' => 'joe',
+                'email' => 'joe@gmail.com',
+                'password' => 'joepw',
+            ]),
+            User::make([
+                'id' => 2,
+                'name' => 'shaheem',
+                'email' => 'shaheem@gmail.com',
+                'password' => 'shaheempw',
+            ]),
+            User::make([
+                'id' => 3,
+                'name' => 'James',
+                'email' => 'james@gmail.com',
+                'password' => 'jamespw',
+            ]),
+
+        ];
+    }
+
+    public function getFans(): array
+    {
+        return [
+            new Fan(1, 1, 1971),
+            new Fan(2, 2, 1972),
+            new Fan(3, 3, 1973),
         ];
     }
 }
