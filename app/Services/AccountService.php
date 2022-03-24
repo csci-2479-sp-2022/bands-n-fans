@@ -16,13 +16,14 @@ class AccountService implements UserInterface
                     if ($fans->id === $id) {
                 // return $user;
                 // need to use $user here to then find any bands that the user is a fan of, and return the bands
+                // WIP; JUST MAKE SURE THIS DOESN'T BLOW UP
             }
         }
     }
         return null;
     }
 
-    public function getUser(
+/*     public function getUser(
         string $orderby = 'name',
         string $direction = 'asc',
         int $limit = 5 ): array
@@ -57,6 +58,6 @@ class AccountService implements UserInterface
             new Fan(2, 2, 1972),
             new Fan(3, 3, 1973),
         ];
-    }
+    } */
 }
 

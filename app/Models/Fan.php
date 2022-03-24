@@ -14,11 +14,6 @@ class Fan extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'bandID',
-        'userID',
-        'fanSince',
-    ];
 
     
 
