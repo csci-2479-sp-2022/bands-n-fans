@@ -14,4 +14,19 @@ class Band extends Model
         'name',
         'genre',
     ];
+
+    public function genre()
+    {
+        return $this->belongsToMany(Genre::class);
+    }
+
+    public function fan()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function member()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

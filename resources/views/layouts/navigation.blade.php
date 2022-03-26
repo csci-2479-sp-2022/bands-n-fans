@@ -46,7 +46,7 @@
                         </button>
                     </x-slot>
 
-                    
+
 
                     <x-slot name="content">
                         <!-- Authentication -->
