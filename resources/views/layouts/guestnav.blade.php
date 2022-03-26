@@ -59,16 +59,14 @@
                 <!-- Authentication -->
                 <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
                 {{ __('Register') }}
-            </x-responsive-nav-link>
+                </x-responsive-nav-link>
+            </div>
 
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
                 <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
                 {{ __('Log In') }}
-            </x-responsive-nav-link> 
-
-            </div>
-
+                </x-responsive-nav-link>
             </div>
         </div>
     </div>
