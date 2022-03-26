@@ -49,3 +49,4 @@ Route::get('profile', [AccountController::class, 'show'])->middleware(['auth'])-
 
 
 require __DIR__.'/auth.php';
+

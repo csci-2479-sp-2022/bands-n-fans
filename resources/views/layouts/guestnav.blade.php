@@ -20,6 +20,12 @@
 
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                        {{ __('Register') }}
+                </x-nav-link>
+            </div>
+
+            <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                         {{ __('Log In') }}
                 </x-nav-link>
@@ -46,15 +52,24 @@
             </x-responsive-nav-link>
         </div>
 
+
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
+
+
+            <div class="mt-3 space-y-1">
+                <!-- Authentication -->
+                <x-responsive-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                {{ __('Register') }}
+                </x-responsive-nav-link>
+            </div>
+
 
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
                 <x-responsive-nav-link :href="route('login')" :active="request()->routeIs('login')">
                 {{ __('Log In') }}
-            </x-responsive-nav-link>
-
+                </x-responsive-nav-link>
             </div>
         </div>
     </div>
