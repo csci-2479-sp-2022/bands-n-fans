@@ -26,7 +26,7 @@
             @if(Auth::guest())
             @include('layouts.guestnav')
             @endif
-            
+
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
