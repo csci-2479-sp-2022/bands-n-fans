@@ -18,28 +18,9 @@ class BandService implements BandInterface
     }
 
 
-    public function getBands(
-        string $orderby = 'name',
-        string $direction = 'asc',
-        int $limit = 5 ): array
+    public function getBands()
     {
-        return [
-            Band::make([
-                'id' => 1,
-                'name' => 'Pantera',
-                'genre' => 'Heavy Metal',
-            ]),
-            Band::make([
-                'id' => 2,
-                'name' => 'Snoop Dog',
-                'genre' => 'Rap',
-            ]),
-            Band::make([
-                'id' => 3,
-                'name' => 'George Strait',
-                'genre' => 'Country',
-            ]),
-        ];
+        return Band::all();
     }
 
     public function searchBandsByName(string $name): array
