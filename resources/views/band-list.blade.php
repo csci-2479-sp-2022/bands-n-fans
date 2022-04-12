@@ -23,7 +23,7 @@
                                         {{$band->genre}}
                                     </div>
                                     <div class="text-sm text-right mr-6">
-                                        (# of) Fans {{--This needs to contain a variable of the number of fans --}}
+                                        {{count($band->fan)}} Fans {{--This needs to contain a variable of the number of fans --}}
                                     </div>
                                 </div>
                             </div>

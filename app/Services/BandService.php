@@ -24,11 +24,12 @@ class BandService implements BandInterface
         int $limit = 5 )
     {
 
-
+        return band::with(['genre', 'fan'])->get();
+        //$bands = band::with(['genre', 'fan'])->get();
         //$bands = Band::get();
-        /* $bands->each(function($item, $key)
+/*         $bands->each(function($item, $key)
         {
-            echo $item;
+            echo count($item->genre);
         }); */
        /*  $bands->each(function($item, $key)
         {
@@ -39,7 +40,6 @@ class BandService implements BandInterface
         //var_dump($array);
         //die();
         //return $bands->toArray();
-        return band::with(['genre', 'band_fan'])->get();
 
 
 /*         return [

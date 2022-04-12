@@ -25,14 +25,14 @@ class Band extends Model
         return $this->belongsToMany(Genre::class);
     }
 
-    public function band_fan()
+    public function fan()
     {
-        return $this->belongsToMany(Fan::class);
+        return $this->belongsToMany(User::class)->using(Fan::class);
     }
 
     public function member()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(Member::class);
     }
 
 /*     public function users()
