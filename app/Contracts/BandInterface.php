@@ -10,7 +10,7 @@ interface BandInterface
     function getBands(
         string $orderby = 'name',
         string $direction = 'asc',
-        int $limit = 5 ): array;
+        int $limit = 5 );
 
     function searchBandsByName(string $name): array;
 }

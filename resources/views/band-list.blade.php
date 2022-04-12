@@ -7,6 +7,7 @@
     <x-slot name="slot">
 
         <div class="max-w-7xl mx-auto flex flex-wrap gap-4 justify-around">
+
             @foreach($bands as $band)
             <a href="http://localhost/bands/{{$band->id}}">
                     <div  class=" h-24 w-96 m-2 rounded-lg overflow-auto bg-purple-500 hover:bg-purple-600 shadow-lg flex flex-row flex-nowrap">

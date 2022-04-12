@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class Band extends Model
 {
@@ -13,6 +16,8 @@ class Band extends Model
         'id',
         'name',
         'genre',
+        'year_formed',
+        'photo',
     ];
 
     public function genre()
@@ -20,13 +25,19 @@ class Band extends Model
         return $this->belongsToMany(Genre::class);
     }
 
-    public function fan()
+    public function band_fan()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(Fan::class);
     }
 
     public function member()
     {
         return $this->belongsToMany(User::class);
     }
+
+/*     public function users()
+    {
+        return $this->belongsToMany(User::class);
+    } */
+
 }

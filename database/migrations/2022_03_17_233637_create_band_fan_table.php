@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fans', function (Blueprint $table) {
+        Schema::create('band_fan', function (Blueprint $table) {
             $table->id();
             $table->foreignId('band_id')->constrained();
             $table->foreignId('user_id')->constrained();
