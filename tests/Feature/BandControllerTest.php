@@ -11,6 +11,7 @@ use Mockery\MockInterface;
 
 class BandControllerTest extends TestCase
 {
+    use RefreshDatabase;
 
     private MockInterface $bandServiceSpy;
 
@@ -49,6 +50,7 @@ class BandControllerTest extends TestCase
             ->andReturn( $this->bands);
 
         $response = $this->get('/bands');
+        var_dump($response);
         $response->assertViewHas('bands', $this->bands);
         $response->assertStatus(200);
     }
