@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-center font-semibold text-3xl text-black leading-3">
-            {{ __('Select a band that you would like to learn more about') }}
+            {{ __('Select a Band') }}
         </h2>
     </x-slot>
     <x-slot name="slot">
