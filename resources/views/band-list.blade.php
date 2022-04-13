@@ -10,7 +10,7 @@
             @foreach($bands as $band)
             <a href="http://localhost/bands/{{$band->id}}">
                     <div  class=" h-24 w-96 m-2 rounded-lg overflow-auto bg-purple-500 hover:bg-purple-600 shadow-lg flex flex-row flex-nowrap">
-                            <div class="bg-cover bg-[url(https://live.staticflickr.com/5226/5581837543_9ef80a2fd6_b.jpg)] rounded-full basis-1/4">
+                            <div class="bg-cover bg-[url({{$band->photo }})] rounded-full basis-1/4">
 
                             </div>
                             <div class="m-2 pl-6 basis-3/4">

@@ -16,7 +16,7 @@
                     <li>{{ $genre->name }}</li>
                     @endforeach
                     <li>Year formed: {{$band->year_formed }}</li>
-                    <img src="https://live.staticflickr.com/5226/5581837543_9ef80a2fd6_b.jpg" alt="Photo of {{$band->name }}">
+                    <img src="{{$band->photo }}" alt="Photo of {{$band->name }}">
                 </div>
             </div>
         </div>
