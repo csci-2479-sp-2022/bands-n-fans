@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="/">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                    <img src="https://www.fillmurray.com/60/60" alt="">
+                        <!-- <x-application-logo class="block h-10 w-auto fill-current text-gray-600" /> -->
                     </a>
                 </div>
 
