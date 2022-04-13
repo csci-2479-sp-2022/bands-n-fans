@@ -19,7 +19,9 @@
                                         {{$band->name }}
                                     </div>
                                     <div class="truncate text-lg">
-                                        {{$band->genre}}
+                                    @foreach ($band->genre as $genre)
+                                    {{ $genre->name }} &nbsp;
+                                    @endforeach
                                     </div>
                                     <div class="text-sm text-right mr-6">
                                         (# of) Fans {{--This needs to contain a variable of the number of fans --}}
