@@ -4,9 +4,10 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class="object-cover flex items-center">
                     <a href="/">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                        <img src="https://live.staticflickr.com/3262/2610247374_7c9075d43e.jpg" alt="" height="50">
+                        <!-- <x-application-logo class="block h-10 w-auto fill-current text-gray-600" /> -->
                     </a>
                 </div>
 
