@@ -1,12 +1,10 @@
 <?php
 namespace App\Contracts;
 
-use App\Models\User;
+use App\Models\Band;
 
 interface UserInterface
 {
-    function getBandsByUserId(int $id): ?User;
-
-    function getUser(): array;
+    function getBandsByUserId(int $id);
 
 }
