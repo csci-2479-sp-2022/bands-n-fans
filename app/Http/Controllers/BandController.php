@@ -7,6 +7,7 @@ use App\Models\Genre;
 use App\Models\Band;
 use Illuminate\Http\Request;
 use App\Contracts\BandInterface;
+use Illuminate\Http\UploadedFile;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class BandController extends Controller
@@ -48,6 +49,8 @@ class BandController extends Controller
 
     public function create(BandRequest $request)
     {
+        //var_dump($request->file('file'));
+        //die();
         //find the genre parent record
         $genre = Genre::find($request->getGenreId());
 
@@ -62,10 +65,16 @@ class BandController extends Controller
 
         //if there is a photo, move it and set the path on the game record
         if ($request->hasPhoto())
+        //var_dump($request->hasPhoto());
+        //die();
         {
             $band['photo'] = self::uploadFile($request->getPhoto());
+            //var_dump($band);
+            //die();
         }
-
+/*         var_dump($band['name']);
+        var_dump($band['photo']);
+        die(); */
         //save to database
         $band->save();
 

@@ -27,6 +27,7 @@ class GenreSeeder extends Seeder
             ['name' => 'Jazz','code' => 'JAZ',],
             ['name' => 'Metal','code' => 'MET',],
             ['name' => 'Pop','code' => 'POP',],
+            ['name' => 'Rap','code' => 'RAP',],
             ['name' => 'R&B','code' => 'R&B',],
             ['name' => 'Rock','code' => 'RCK',],
             ['name' => 'Soul','code' => 'SOL',],

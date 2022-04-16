@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Validation\Rule;
 use App\Models\Genre;
 
@@ -31,6 +32,7 @@ class BandRequest extends FormRequest
             'name' => 'required|string',
             'year' => 'required|date_format:Y',
             'genre' => [Rule::in($genreIds)],
+            'photo' => 'required',
         ];
     }
 
@@ -46,21 +48,33 @@ class BandRequest extends FormRequest
 
     public function hasPhoto(): bool
     {
+        //var_dump($this->file('photo'));
+        //die();
         return $this->hasFile('photo')
             && $this->file('photo')->isValid();
     }
+
+    public function getPhoto(): UploadedFile
+    {
+        return $this->file('photo');
+    }
+/*     public function hasBoxart(): bool
+    {
+        return $this->hasFile('boxart')
+            && $this->file('boxart')->isValid();
+    } */
+
+/*     public function getBoxart(): UploadedFile
+    {
+        return $this->file('boxart');
+    } */
 
     public function getYearFormed(): string
     {
         return $this->input('year');
     }
 
-    public function getPhoto(): UploadedFile
-    {
-        return $this->input('photo');
-    }
-
-    private static function getGenreIds(): array
+   private static function getGenreIds(): array
     {
         $idRows = Genre::select('id')->get()->toArray();
 

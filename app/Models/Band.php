@@ -32,7 +32,7 @@ class Band extends Model
 
     public function member()
     {
-        return $this->belongsToMany(Member::class);
+        return $this->belongsToMany(User::class)->using(Member::class);
     }
 
 /*     public function users()
