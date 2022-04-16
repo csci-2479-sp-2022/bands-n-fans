@@ -16,7 +16,12 @@
                     <li>{{ $genre->name }}</li>
                     @endforeach
                     <li>Year formed: {{$band->year_formed }}</li>
+                    @if ($band->photo)
                     <img src="{{$band->photo }}" alt="Photo of {{$band->name }}">
+                        @else
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7EdlomtZmtYVX4JlPCJcdaDqszCOwnlZgTg&usqp=CAU"/>
+                    @endif
+
                 </div>
             </div>
         </div>

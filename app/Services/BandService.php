@@ -17,8 +17,17 @@ class BandService implements BandInterface
         return null;
     }
 
+    public function searchBandsByName(string $name): array
+    {
+        foreach (self::getBands() as $band) {
+            if ($band->name === $name) {
+                return $band;
+            }
+        }
 
-<<<<<<< HEAD
+        return null;
+    }
+
     public function getBands(
         string $orderby = 'name',
         string $direction = 'asc',
@@ -32,7 +41,7 @@ class BandService implements BandInterface
         //$flat = $bands->flatten();
         //echo $bands;
         //$bands = Band::get();
-/*         $bands->each(function($item, $key)
+        /*$bands->each(function($item, $key)
         {
             $genre = $item->genre;
 
@@ -43,7 +52,7 @@ class BandService implements BandInterface
 
             });
         }); */
-/*         $bands->each(function($item, $key)
+        /*$bands->each(function($item, $key)
         {
                 $array = $item->toArray();
                 //var_dump($array['genre']);
@@ -58,7 +67,7 @@ class BandService implements BandInterface
         //return $bands->toArray();
 
 
-/*         return [
+        /*return [
             Band::make([
                 'id' => '1',
                 'name' => 'Pantera',
@@ -78,22 +87,11 @@ class BandService implements BandInterface
                 'year_formed' => 2013,
             ]),
         ]; */
-=======
-    public function getBands()
-    {
-        return Band::all();
->>>>>>> main
-    }
 
-    public function searchBandsByName(string $name): array
-    {
-        foreach (self::getBands() as $band) {
-            if ($band->name === $name) {
-                return $band;
-            }
-        }
-
-        return null;
+        /* public function getBands()
+        {
+            return Band::all();
+        } */
     }
 
 }

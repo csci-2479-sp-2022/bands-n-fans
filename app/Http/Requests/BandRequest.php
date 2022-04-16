@@ -32,10 +32,8 @@ class BandRequest extends FormRequest
             'name' => 'required|string',
             'year' => 'required|date_format:Y',
             'genre' => [Rule::in($genreIds)],
-            'photo' => 'required',
         ];
     }
-
     public function getBand(): string
     {
         return $this->input('name');
@@ -48,8 +46,6 @@ class BandRequest extends FormRequest
 
     public function hasPhoto(): bool
     {
-        //var_dump($this->file('photo'));
-        //die();
         return $this->hasFile('photo')
             && $this->file('photo')->isValid();
     }
