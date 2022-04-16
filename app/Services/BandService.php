@@ -18,6 +18,7 @@ class BandService implements BandInterface
     }
 
 
+<<<<<<< HEAD
     public function getBands(
         string $orderby = 'name',
         string $direction = 'asc',
@@ -77,6 +78,11 @@ class BandService implements BandInterface
                 'year_formed' => 2013,
             ]),
         ]; */
+=======
+    public function getBands()
+    {
+        return Band::all();
+>>>>>>> main
     }
 
     public function searchBandsByName(string $name): array

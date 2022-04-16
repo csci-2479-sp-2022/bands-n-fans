@@ -35,9 +35,22 @@ class Band extends Model
         return $this->belongsToMany(User::class)->using(Member::class);
     }
 
+<<<<<<< HEAD
 /*     public function users()
     {
         return $this->belongsToMany(User::class);
     } */
 
+=======
+    public function genreList(): string
+    {
+        $genreList = [];
+
+        foreach ($this->genres as $genre) {
+            array_push($genreList, $genre['name']);
+        }
+
+        return implode(', ', $genreList);
+    }
+>>>>>>> main
 }
