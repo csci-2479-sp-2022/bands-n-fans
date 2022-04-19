@@ -13,9 +13,7 @@ class Band extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'name',
-        'genre',
         'year_formed',
         'photo',
     ];
@@ -35,19 +33,21 @@ class Band extends Model
         return $this->belongsToMany(User::class)->using(Member::class);
     }
 
-/*     public function users()
+    public function photoUrl(): Attribute
     {
-        return $this->belongsToMany(User::class);
-    } */
+        return Attribute::make(
+            fn ($value, $attributes) => Storage::url($this->photo)
+        );
+    }
 
-/*     public function genreList(): string
+    public function genreList(): string
     {
         $genreList = [];
 
-        foreach ($this->genres as $genre) {
+        foreach ($this->genre as $genre) {
             array_push($genreList, $genre['name']);
         }
 
         return implode(', ', $genreList);
-    } */
+    }
 }

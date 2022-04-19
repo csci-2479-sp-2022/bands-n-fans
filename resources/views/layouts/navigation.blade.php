@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="object-cover flex items-center">
                     <a href="/">
-                        <img src="https://live.staticflickr.com/3262/2610247374_7c9075d43e.jpg" alt="" height="50">
+                        <img src="https://www.fillmurray.com/60/60" alt="" height="50">
                         <!-- <x-application-logo class="block h-10 w-auto fill-current text-gray-600" /> -->
                     </a>
                 </div>

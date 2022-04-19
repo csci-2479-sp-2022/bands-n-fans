@@ -34,6 +34,9 @@ class BandRequest extends FormRequest
             'genre' => [Rule::in($genreIds)],
         ];
     }
+
+        //these functions grab the post data from the band register form
+
     public function getBand(): string
     {
         return $this->input('name');
@@ -54,23 +57,14 @@ class BandRequest extends FormRequest
     {
         return $this->file('photo');
     }
-/*     public function hasBoxart(): bool
-    {
-        return $this->hasFile('boxart')
-            && $this->file('boxart')->isValid();
-    } */
-
-/*     public function getBoxart(): UploadedFile
-    {
-        return $this->file('boxart');
-    } */
 
     public function getYearFormed(): string
     {
         return $this->input('year');
     }
 
-   private static function getGenreIds(): array
+    //needs to be moved to a GenreService file
+    private static function getGenreIds(): array
     {
         $idRows = Genre::select('id')->get()->toArray();
 

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BandRequest;
 use App\Models\Genre;
 use App\Models\Band;
-use Illuminate\Http\Request;
 use App\Contracts\BandInterface;
-use Illuminate\Http\UploadedFile;
+use App\Http\Requests\BandRequest;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class BandController extends Controller
@@ -18,7 +17,16 @@ class BandController extends Controller
     )
     { }
 
-    public function viewBand(int $id = null)
+    //show a list of all of the bands in the database
+    public function index()
+    {
+        return view('band-list', [
+            'bands' => $this->bandService->getBands(),
+        ]);
+    }
+
+    //displays a single band record by database id #
+    public function show(int $id = null)
     {
 
         if ($this->bandService->getBandById($id) == null) {
@@ -28,54 +36,28 @@ class BandController extends Controller
         return view('band-info', [ 'band' => $this->bandService->getBandById($id) ]);
     }
 
-    public function getBandList()
-    {
-        return view('band-list', [
-            'bands' => $this->bandService->getBands(),
-        ]);
-    }
-
-    public function index()
+    //display the form to add a new band to the database--also grabs the genres to go into the form
+    public function create()
     {
         return view ('band-register-form', [
             'genres' => self::getGenres(),
         ]);
     }
 
-    private static function getGenres()
+    //saves the newly created band to the database
+    public function store(BandRequest $request)
     {
-        return Genre:: orderBy ('name')->get();
-    }
-
-    public function create(BandRequest $request)
-    {
-
-        //find the genre parent record
-        $genre = Genre::find($request->getGenreId());
-
-        //initialize a band object (not yet saved)
-        $band = Band::make([
-            'name' => $request->getBand(),
-            'year_formed' => $request->getYearFormed(),
-        ]);
-
-        //establish the parent-child relationship between genre and game
-        $band->genre($genre);
-
-        //if there is a photo, move it and set the path on the game record
-        if ($request->hasPhoto())
-        {
-            $band['photo'] = self::uploadFile($request->getPhoto());
-        }
-        //save to database
-        $band->save();
+        //save the band to the database
+        $this->bandService->saveBand($request);
 
         //redirect to the band list page
         return response()->redirectToRoute('bands');
     }
 
-    private static function uploadFile(UploadedFile $file): string
+
+    //this is to plug the genre list into the form---really needs to be in its own GenreService
+    private static function getGenres()
     {
-        return $file->store('public');
+        return Genre:: orderBy ('name')->get();
     }
 }

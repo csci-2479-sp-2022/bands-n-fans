@@ -36,6 +36,7 @@ class BandSeeder extends Seeder
         ]);
         DB::table('band_genre')->insert([
             ['band_id' => 1, 'genre_id' => 1,],
+            ['band_id' => 1, 'genre_id' => 2,],
             ['band_id' => 2, 'genre_id' => 2,],
             ['band_id' => 3, 'genre_id' => 3,],
             ['band_id' => 4, 'genre_id' => 4,],
