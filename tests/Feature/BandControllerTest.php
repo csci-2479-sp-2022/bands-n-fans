@@ -18,14 +18,14 @@ class BandControllerTest extends TestCase
 
     private static function getBands()
     {
-        $rock = Genre::make([
+        /* $rock = Genre::make([
             'id' => 1,
-            'name' => 'rock',
+            'name' => 'Alternative',
         ]);
         $rap = Genre::make([
             'id' => 2,
-            'name' => 'rap',
-        ]);
+            'name' => 'Blues',
+        ]); */
 
         return [
             Band::make([
@@ -77,7 +77,7 @@ class BandControllerTest extends TestCase
         $this->bandServiceSpy->shouldReceive('getBands')
         ->andReturn($this->bands);
 
-        $response = $this->get('/bands/3');
+        $response = $this->get('/bands/103');
 
         $response->assertStatus(404);
     }
