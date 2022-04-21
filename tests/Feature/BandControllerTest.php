@@ -18,14 +18,6 @@ class BandControllerTest extends TestCase
 
     private static function getBands()
     {
-        /* $rock = Genre::make([
-            'id' => 1,
-            'name' => 'Alternative',
-        ]);
-        $rap = Genre::make([
-            'id' => 2,
-            'name' => 'Blues',
-        ]); */
 
         return [
             Band::make([
