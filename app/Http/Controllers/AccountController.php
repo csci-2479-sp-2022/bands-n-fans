@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Fan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Contracts\UserInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -15,10 +16,10 @@ class AccountController extends Controller
     { }
 
     public function show()
-    {
-        return view('account-profile', [
-            'bands' => $this->userService->getBandsByUserId(8),
-        ]);
+    { 
+        // var_dump(Auth::user()->id); die(); 
+
+        return view('account-profile', ['bands' => $this->userService->getBandsByUserId(8),]);
     }
 }
 
