@@ -54,7 +54,7 @@ class AccountControllerTest extends TestCase
         $response = $this->actingAs($user)
                     ->withSession(['banned' => false])
                     ->get('profile');
-        $response->assertViewHas('bands', $this->userBands);
+        $response->assertViewHas('/bands', $this->userBands);
         $response->assertStatus(200);
     }
 
