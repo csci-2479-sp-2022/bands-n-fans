@@ -21,7 +21,7 @@ class BandService implements BandInterface
         return null;
     }
 
-    public function searchBandsByName(string $name): array
+/*     public function searchBandsByName(string $name): array
     {
         foreach (self::getBands() as $band) {
             if ($band->name === $name) {
@@ -30,7 +30,7 @@ class BandService implements BandInterface
         }
 
         return null;
-    }
+    } */
 
     public function getBands(
         string $orderby = 'name',
@@ -38,7 +38,7 @@ class BandService implements BandInterface
         int $limit = 5 )
     {
 
-        return band::with(['genre', 'fan'])->get();
+        return Band::with(['genre', 'fan'])->get();
     }
 
     public function saveBand(BandRequest $request)
@@ -75,6 +75,12 @@ class BandService implements BandInterface
     private static function uploadFile(UploadedFile $file): string
     {
         return $file->store('public');
+    }
+
+    //this is to plug the genre list into the form---really needs to be in its own GenreService
+    public function getGenres()
+    {
+        return Genre:: orderBy ('name')->get();
     }
 
 }

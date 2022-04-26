@@ -28,10 +28,11 @@ class Band extends Model
         return $this->belongsToMany(User::class)->using(Fan::class);
     }
 
-    public function member()
+    //Commened out until we get it incorporated into app..lowering test coverage
+/*     public function member()
     {
         return $this->belongsToMany(User::class)->using(Member::class);
-    }
+    } */
 
     public function photoUrl(): Attribute
     {
@@ -39,8 +40,8 @@ class Band extends Model
             fn ($value, $attributes) => Storage::url($this->photo)
         );
     }
-
-    public function genreList(): string
+        //This is not needed and takes a toll on the test coverage
+/*     public function genreList(): string
     {
         $genreList = [];
 
@@ -49,5 +50,5 @@ class Band extends Model
         }
 
         return implode(', ', $genreList);
-    }
+    } */
 }
