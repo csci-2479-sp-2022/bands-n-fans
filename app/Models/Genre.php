@@ -10,6 +10,10 @@ class Genre extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+    ];
+
     public function bands()
     {
         return $this->hasMany(Band::class);

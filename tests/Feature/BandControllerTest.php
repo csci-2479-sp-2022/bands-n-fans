@@ -33,12 +33,30 @@ class BandControllerTest extends TestCase
             ]),
         ];
     }
+    private $genres = [];
+
+    private static function getGenres()
+    {
+
+        return [
+            Genre::make([
+                'id' => 1,
+                'name' => 'Rap',
+
+            ]),
+            Genre::make([
+                'id' => 2,
+                'name' => 'Rock',
+            ]),
+        ];
+    }
 
     protected function setUp(): void
     {
         parent::setUp();
 
         $this->bands = self::getBands();
+        $this->genres = self::getGenres();
         $this->bandServiceSpy = $this->spy(BandInterface::class);
 
     }
@@ -62,6 +80,27 @@ class BandControllerTest extends TestCase
         $response->assertViewHas('band', $this->bands[0]);
         $response->assertStatus(200);
 
+    }
+
+    public function test_return_band_register_form(){
+        $this->bandServiceSpy->shouldReceive('getGenres')
+            ->andReturn($this->genres);
+
+        $response = $this->get('/band');
+        $response->assertViewHas('genres', $this->genres);
+        $response->assertStatus(200);
+
+    }
+
+    public function test_new_band_can_register()
+    {
+        $response = $this->post('/band', [
+            'name' => 'Test Band',
+            'year_formed' => '2020',
+            'genre' => 'Blues',
+        ]);
+
+        $response->assertRedirect('');
     }
 
     public function test_return_404(){
