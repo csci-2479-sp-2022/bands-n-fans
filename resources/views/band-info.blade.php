@@ -11,8 +11,7 @@
                 <div class="p-6 bg-purple-600 border-b border-gray-200">
                 <ol>
                     <li>Genres: </li>
-
-                    <li>{{$band->genreList()}}</li>
+                    <li>{{implode(", ", ($band->genre()->pluck('name'))->toArray())}}</li>
                     <li>Year formed: {{$band->year_formed }}</li>
                     @if ($band->photo)
                         @if (str_contains($band->photo, 'public'))

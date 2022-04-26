@@ -9,7 +9,7 @@
             @foreach($bands as $band)
                     {{-- this is the link to the bands info page --}}
             <a href="http://localhost/bands/{{$band->id}}">
-                    <div  class=" h-24 w-96 m-2 rounded-lg bg-purple-500 hover: e-600 shadow-lg flex flex-row flex-nowrap">
+                    <div  class=" h-24 w-96 m-2 rounded-lg bg-purple-500 hover:bg-purple-600 shadow-lg flex flex-row flex-nowrap">
                             <div class=" basis-1/4">
                                 @if ($band->photo)
                                     @if (str_contains($band->photo, 'public'))
@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="text-lg">
                                         {{-- this displays a list of genres that the band falls under --}}
-                                        {{$band->genreList()}}
+                                        {{implode(", ", ($band->genre()->pluck('name'))->toArray())}}
                                     </div>
                                     <div class="w-auto text-right text-sm">
                                         {{-- this displays the number of fans that the band has --}}

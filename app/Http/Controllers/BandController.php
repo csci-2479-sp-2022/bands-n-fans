@@ -40,7 +40,7 @@ class BandController extends Controller
     public function create()
     {
         return view ('band-register-form', [
-            'genres' => self::getGenres(),
+            'genres' => $this->bandService->getGenres(),
         ]);
     }
 
@@ -55,9 +55,4 @@ class BandController extends Controller
     }
 
 
-    //this is to plug the genre list into the form---really needs to be in its own GenreService
-    private static function getGenres()
-    {
-        return Genre:: orderBy ('name')->get();
-    }
 }

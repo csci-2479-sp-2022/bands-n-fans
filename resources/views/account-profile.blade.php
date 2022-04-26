@@ -65,5 +65,4 @@
             {{ Auth::user()->name}}, you are a fan of {{count($bands)}} Bands!
             </div>
 
-
 </x-app-layout>

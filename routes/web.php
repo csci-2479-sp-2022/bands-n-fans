@@ -26,8 +26,8 @@ Route::get('/', function () {
 Route::controller(BandController::class)->group(function() {
     Route::get('/bands', 'index')->name('bands');
     Route::get('/bands/{id}', 'show')->name('bandByID');
-    Route::get('band', 'create')->name('bandregister');
-    Route::post('band', 'store');
+    Route::get('/band', 'create')->name('bandregister');
+    Route::post('/band', 'store');
 });
 
 Route::get('/search-results', [SearchController::class, 'searchBandsByName']);
