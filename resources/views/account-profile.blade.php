@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="text-lg">
                                         {{-- this displays a list of genres that the band falls under --}}
-                                        {{$band->genreList()}}
+                                        {{implode(", ", ($band->genre()->pluck('name'))->toArray())}}
                                     </div>
                                     <div class="w-auto text-right text-sm">
                                         {{-- this displays the number of fans that the band has --}}
