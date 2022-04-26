@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->year('year_formed');
-            $table->timestamps();
             $table->string('photo')->nullable();
+            $table->timestamps();
         });
     }
 

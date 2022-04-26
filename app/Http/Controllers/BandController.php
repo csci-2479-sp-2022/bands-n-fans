@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Genre;
+use App\Models\Band;
 use App\Contracts\BandInterface;
+use App\Http\Requests\BandRequest;
+use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class BandController extends Controller
@@ -14,7 +17,16 @@ class BandController extends Controller
     )
     { }
 
-    public function viewBand(int $id = null)
+    //show a list of all of the bands in the database
+    public function index()
+    {
+        return view('band-list', [
+            'bands' => $this->bandService->getBands(),
+        ]);
+    }
+
+    //displays a single band record by database id #
+    public function show(int $id = null)
     {
 
         if ($this->bandService->getBandById($id) == null) {
@@ -24,10 +36,22 @@ class BandController extends Controller
         return view('band-info', [ 'band' => $this->bandService->getBandById($id) ]);
     }
 
-    public function getBandList()
+    //display the form to add a new band to the database--also grabs the genres to go into the form
+    public function create()
     {
-        return view('band-list', [
-            'bands' => $this->bandService->getBands(),
+        return view ('band-register-form', [
+            'genres' => $this->bandService->getGenres(),
         ]);
     }
+
+    //saves the newly created band to the database
+    public function store(BandRequest $request)
+    {
+        //save the band to the database
+        $this->bandService->saveBand($request);
+
+        //redirect to the band list page
+        return response()->redirectToRoute('bands');
+    }
+
 }

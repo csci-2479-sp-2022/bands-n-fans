@@ -4,18 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Model\Band;
 
 class Genre extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'name',
     ];
 
-    public function band()
+    public function bands()
     {
-        return $this->belongsToMany(Band::class);
+        return $this->hasMany(Band::class);
     }
 }

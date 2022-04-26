@@ -17,8 +17,10 @@ class BandSeeder extends Seeder
     public function run()
     {
         $factory = Band::factory();
+
+    //band-detail-ui
+
         $factory->createMany([
-    band-detail-ui
             ['name' => 'Band 1','year_formed' => 1994,'photo' => 'https://live.staticflickr.com/5226/5581837543_9ef80a2fd6_b.jpg',],
             ['name' => 'Band 2','year_formed' => 1995,'photo' => 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Bob_Dylan_and_The_Band_-_1974.jpg',],
             ['name' => 'Band 3','year_formed' => 1996,'photo' => 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Tora_music_band_photo.JPG',],
@@ -30,10 +32,11 @@ class BandSeeder extends Seeder
             ['name' => 'Band 8','year_formed' => 1996,],
             ['name' => 'Band 9','year_formed' => 1997,],
             ['name' => 'Band 10','year_formed' => 1998,],
-   main
+   //main
         ]);
         DB::table('band_genre')->insert([
             ['band_id' => 1, 'genre_id' => 1,],
+            ['band_id' => 1, 'genre_id' => 2,],
             ['band_id' => 2, 'genre_id' => 2,],
             ['band_id' => 3, 'genre_id' => 3,],
             ['band_id' => 4, 'genre_id' => 4,],
