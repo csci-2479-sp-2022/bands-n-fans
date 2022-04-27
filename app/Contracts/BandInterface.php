@@ -18,5 +18,6 @@ interface BandInterface
 
 /*     function searchBandsByName(string $name): array; */
 
+
     function getGenres();
 }

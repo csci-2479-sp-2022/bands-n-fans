@@ -32,7 +32,7 @@ class Band extends Model
 /*     public function member()
     {
         return $this->belongsToMany(User::class)->using(Member::class);
-    } */
+    }*/
 
     public function photoUrl(): Attribute
     {

@@ -33,7 +33,9 @@ class BandController extends Controller
             throw new NotFoundHttpException();
         }
 
-        return view('band-info', [ 'band' => $this->bandService->getBandById($id) ]);
+        return view('band-info', [
+             'band' => $this->bandService->getBandById($id) 
+            ]);
     }
 
     //display the form to add a new band to the database--also grabs the genres to go into the form
@@ -53,5 +55,4 @@ class BandController extends Controller
         //redirect to the band list page
         return response()->redirectToRoute('bands');
     }
-
 }

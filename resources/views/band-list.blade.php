@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-center font-semibold text-3xl text-purple-600 leading-3">
+        <h2 class="text-center font-semibold text-4xl text-purple-600 leading-3">
             {{ __('Bands-n-Fans') }}
         </h2>
     </x-slot>
@@ -44,6 +44,11 @@
             @endforeach
 
         </div>
+        </div>
+            <div class="fixed text-center inline-block align-text-bottom h-12 text-4xl rounded-lg bg-purple-500 max-w-7xl mx-auto bottom-0 left-0 right-0">
+              Bands & Fans website is home to {{count($bands)}} Bands!
+            </div>
+        
 
 </x-slot>
 

@@ -10,6 +10,13 @@ class Fan extends Pivot
 {
     use HasFactory;
 
+    protected $fillable = [
+        'band_id',
+        'user_id',
+        'fan_since',
+    ];
+
+
     public function band()
     {
         return $this->belongsToMany(Band::class);
