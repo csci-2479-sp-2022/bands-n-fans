@@ -83,49 +83,4 @@ class BandService implements BandInterface
         return Genre:: orderBy ('name')->get();
     }
 
-    public function getBands(
-        string $orderby = 'name',
-        string $direction = 'asc',
-        int $limit = 5 )
-    {
-
-        return band::with(['genre', 'fan'])->get();
-    }
-
-    public function saveBand(BandRequest $request)
-    {
-        //find the genre parent record
-        $genre = Genre::find($request->getGenreId());
-
-        //initialize a band object (not yet saved)
-        $band = Band::make([
-            'name' => $request->getBand(),
-            'year_formed' => $request->getYearFormed(),
-        ]);
-
-        //establish the parent-child relationship between genre and band
-        $band->genre($genre);
-
-        //if there is a photo, move it and set the path on the band record
-        if ($request->hasPhoto())
-        {
-            $band['photo'] = self::uploadFile($request->getPhoto());
-        }
-
-        //save to database
-        $band->save();
-
-        //saves the band_genre records in the database
-        $bandGenre = Band::where('id', $band->id)->first();
-        $bandGenre->genre()->attach([
-                    $genre->id,
-                ]);
-
-    }
-
-    private static function uploadFile(UploadedFile $file): string
-    {
-        return $file->store('public');
-    }
-
 }
