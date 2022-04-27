@@ -96,12 +96,18 @@ class BandControllerTest extends TestCase
     {
         $response = $this->post('/band', [
             'name' => 'Test Band',
-            'year_formed' => '2020',
-            'genre' => 'Blues',
+            'year' => '2020',
         ]);
 
-        $response->assertRedirect('');
+        $response->assertRedirect('/bands');
+        $response->assertStatus(302);
     }
+
+/*     public function test_save_band_function()
+    {
+        $this->bandServiceSpy->shouldReceive('saveBand')
+
+    } */
 
     public function test_return_404(){
 
