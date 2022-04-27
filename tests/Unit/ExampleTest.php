@@ -6,6 +6,8 @@ use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
+
+    use DatabaseMigrations;
     /**
      * A basic test example.
      *

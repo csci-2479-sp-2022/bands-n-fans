@@ -13,6 +13,8 @@ use Mockery\MockInterface;
 class AccountControllerTest extends TestCase
 {
     use RefreshDatabase;
+
+    use DatabaseMigrations;
     
     private MockInterface $accountServiceSpy;
 

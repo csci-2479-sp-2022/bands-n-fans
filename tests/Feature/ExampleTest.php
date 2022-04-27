@@ -7,6 +7,9 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+
+    use DatabaseMigrations;
+    
     /**
      * A basic test example.
      *

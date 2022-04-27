@@ -8,7 +8,7 @@ use Tests\TestCase;
 
 class SearchControllerTest extends TestCase
 {
-    use RefreshDatabase;
+    use DatabaseMigrations;
     
     public function test_searchResultsSuccessfulGet()
     {
