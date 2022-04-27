@@ -16,11 +16,9 @@ class AccountController extends Controller
     { }
 
     public function show()
-    { 
-        // var_dump(Auth::user()->id); die(); 
-
-        return view('account-profile', ['bands' => $this->userService->getBandsByUserId(8),]);
+    {
+        return view('account-profile', [
+            'bands' => $this->userService->getBandsByUserId(8),
+        ]);
     }
 }
-
-
