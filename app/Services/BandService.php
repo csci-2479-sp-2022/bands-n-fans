@@ -32,6 +32,13 @@ class BandService implements BandInterface
         return null;
     } */
 
+    public function getBandsByUserId(int $id)
+    {
+        return Band::whereHas('fan', function($q) use($id){
+            $q->where('user_id', $id);
+        })->get();
+    }
+
     public function getBands(
         string $orderby = 'name',
         string $direction = 'asc',

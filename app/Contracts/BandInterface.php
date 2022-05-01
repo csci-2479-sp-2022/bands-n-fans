@@ -16,6 +16,8 @@ interface BandInterface
 
     function saveBand(BandRequest $request);
 
+    function getBandsByUserId(int $id);
+
 /*     function searchBandsByName(string $name): array; */
 
 
