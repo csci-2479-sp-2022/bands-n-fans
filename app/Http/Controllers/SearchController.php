@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Contracts\BandInterface;
+use App\Http\Requests\SearchRequest;
 
 class SearchController extends Controller
 {
@@ -19,10 +20,12 @@ public function __construct(
     private BandInterface $bandService
 )
 { }
-    public function searchBandsByName(string $name ='')
+    
+    public function searchBandsByName(SearchRequest $request)
     {
         return view('search-results', [
-            'bands' => $this->bandService->getBands(),
+            'bands' => $this->bandService->searchBand($search),
         ]);
     }
+    
 }
