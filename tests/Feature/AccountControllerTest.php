@@ -14,8 +14,6 @@ class AccountControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    use DatabaseMigrations;
-    
     private MockInterface $accountServiceSpy;
 
     private $userBands = [];

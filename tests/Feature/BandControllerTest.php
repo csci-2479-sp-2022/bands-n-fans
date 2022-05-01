@@ -12,7 +12,7 @@ use Mockery\MockInterface;
 
 class BandControllerTest extends TestCase
 {
-    use DatabaseMigrations; 
+    use RefreshDatabase;
     
     private MockInterface $bandServiceSpy;
 

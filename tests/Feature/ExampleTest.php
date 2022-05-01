@@ -8,7 +8,7 @@ use Tests\TestCase;
 class ExampleTest extends TestCase
 {
 
-    use DatabaseMigrations;
+    use RefreshDatabase;
     
     /**
      * A basic test example.
