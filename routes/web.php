@@ -31,7 +31,8 @@ Route::controller(BandController::class)->group(function() {
 });
 
 Route::controller(SearchController::class)->group(function() {
-    Route::get('/search-results', 'searchBandsByName')->name('search-results');
+    Route::get('/search-results/{query}', 'searchResults')->name('search-results');
+    Route::get('/search-results', 'noSearchResults')->name('no-search-results');
     Route::post('/search-results', 'searchBandsByName');
 });
 

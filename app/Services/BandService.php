@@ -63,9 +63,9 @@ class BandService implements BandInterface
     }
 
 
-    public function searchBand(SearchRequest $request)
+    public function searchBand($request)
     {
-        $foundBands = Band:: where('title', 'like', "%{$request}%")->get();
+        $foundBands = Band:: where('name', 'like', "%{$request}%")->get();
 
         return $foundBands;
     }

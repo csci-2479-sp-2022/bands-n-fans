@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-center font-semibold text-4xl text-purple-600 leading-3">
-            {{ __('Bands-n-Fans') }} Search Results
+            {{ __('Bands-n-Fans') }} Search Results for <span style="color:white;">"{{$query}}"</span>
         </h2>
     </x-slot>
     <x-slot name="slot">
