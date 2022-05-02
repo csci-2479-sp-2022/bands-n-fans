@@ -13,7 +13,7 @@ use Mockery\MockInterface;
 class AccountControllerTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     private MockInterface $accountServiceSpy;
 
     private $userBands = [];

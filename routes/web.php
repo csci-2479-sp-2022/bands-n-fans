@@ -30,10 +30,10 @@ Route::controller(BandController::class)->group(function() {
     Route::post('/band', 'store');
 });
 
-Route::get('/search-results', [SearchController::class, 'searchBandsByName']);
-
-Route::post('/search-results', function () {
-    return redirect('/search-results');
+Route::controller(SearchController::class)->group(function() {
+    Route::get('/search-results/{query}', 'searchResults')->name('search-results');
+    Route::get('/search-results', 'noSearchResults')->name('no-search-results');
+    Route::post('/search-results', 'searchBandsByName');
 });
 
 Route::get('profile', [AccountController::class, 'show'])->middleware(['auth'])->name('account-profile');
