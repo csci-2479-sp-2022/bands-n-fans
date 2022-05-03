@@ -29,7 +29,7 @@
                     <form method="post" class="form-inline my-2 my-lg-0" action="/search-results">
                     <!-- CSRF token? -->
                     @csrf
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="search" name='search' id='search' placeholder="Search" aria-label="Search">
                         <button class="inline-flex items-center px-1 pt-1 border-b-2 border-indigo-400 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-indigo-700 transition duration-150 ease-in-out mr-2" type="submit">Search</button>
                     </form>
                 </div>

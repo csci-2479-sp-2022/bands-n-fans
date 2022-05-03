@@ -6,6 +6,7 @@ use App\Models\Band;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Http\Requests\BandRequest;
+use App\Http\Requests\SearchRequest;
 use Illuminate\Http\UploadedFile;
 
 class BandService implements BandInterface
@@ -20,6 +21,7 @@ class BandService implements BandInterface
 
         return null;
     }
+
 
 /*     public function searchBandsByName(string $name): array
     {
@@ -77,6 +79,14 @@ class BandService implements BandInterface
                     $genre->id,
                 ]);
 
+    }
+
+
+    public function searchBand($request)
+    {
+        $foundBands = Band:: where('name', 'like', "%{$request}%")->get();
+
+        return $foundBands;
     }
 
     private static function uploadFile(UploadedFile $file): string
