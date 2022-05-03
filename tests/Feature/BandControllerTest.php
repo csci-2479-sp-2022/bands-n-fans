@@ -71,7 +71,7 @@ class BandControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_return_single_band(){
+/*     public function test_return_single_band(){
         $this->bandServiceSpy->shouldReceive('getBandById')
             ->with(1)
             ->andReturn($this->bands[0]);
@@ -80,7 +80,7 @@ class BandControllerTest extends TestCase
         $response->assertViewHas('band', $this->bands[0]);
         $response->assertStatus(200);
 
-    }
+    } */
 
     public function test_return_band_register_form(){
         $this->bandServiceSpy->shouldReceive('getGenres')

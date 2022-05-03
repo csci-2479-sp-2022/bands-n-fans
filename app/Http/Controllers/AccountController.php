@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class AccountController extends Controller
 {
     public function __construct(
-        private UserInterface $userService,
+        /* private UserInterface $userService, */
         private BandInterface $bandService
     )
     { }
