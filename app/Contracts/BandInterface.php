@@ -2,6 +2,7 @@
 namespace App\Contracts;
 
 use App\Models\Band;
+use App\Models\Fan;
 use App\Http\Requests\BandRequest;
 
 interface BandInterface
@@ -22,4 +23,8 @@ interface BandInterface
 
 
     function getGenres();
+
+    public function likeBand($id);
+
+    public function unlikeBand($id);
 }

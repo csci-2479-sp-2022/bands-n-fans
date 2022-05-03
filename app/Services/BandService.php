@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Contracts\BandInterface;
 use App\Models\Band;
+use App\Models\Fan;
 use App\Models\Genre;
 use Illuminate\Http\Request;
 use App\Http\Requests\BandRequest;
@@ -99,5 +100,25 @@ class BandService implements BandInterface
     {
         return Genre:: orderBy ('name')->get();
     }
+
+    public function likeBand($id)
+    {
+        $band = Band::find($id);
+        $fan = Fan::make([
+            'user_id' => Auth::user()->id,
+            'band_id' => $band,
+            'fan_since' => date('Y'),
+        ]); 
+        // $band->like(); 
+        $fan->save();
+    }
+
+    public function unlikeBand($id)
+    {
+        $band = Band::find($id);
+        $band->unlike();
+        $band->save();
+    }
+
 
 }
