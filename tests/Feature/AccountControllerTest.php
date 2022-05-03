@@ -7,14 +7,17 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Band;
 use App\Models\User;
+use App\Contracts\BandInterface;
 use App\Contracts\UserInterface;
 use Mockery\MockInterface;
 
 class AccountControllerTest extends TestCase
 {
-    use RefreshDatabase;
 
-    private MockInterface $accountServiceSpy;
+    /* use RefreshDatabase;
+
+    private MockInterface $bandServiceSpy;
+
 
     private $userBands = [];
 
@@ -41,13 +44,19 @@ class AccountControllerTest extends TestCase
 
         $this->userBands = self::getUserBands();
 
-        $this->userServiceSpy = $this->spy(UserInterface::class);
+        $this->bandServiceSpy = $this->spy(BandInterface::class);
+    } */
 
+    public function test_the_application_returns_a_successful_response()
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
     }
 
-    public function test_return_bands(){
-        $user = User::factory()->create();
-        $this->userServiceSpy->shouldReceive('getBandsByUserId')
+/*     public function test_return_bands(){
+        $user = Band::factory()->create();
+        $this->bandServiceSpy->shouldReceive('getBandsByUserId')
             ->once()
             ->andReturn( $this->userBands);
 
@@ -56,7 +65,7 @@ class AccountControllerTest extends TestCase
                     ->get('profile');
         $response->assertViewHas('bands', $this->userBands);
         $response->assertStatus(200);
-    }
+    } */
 
 
 

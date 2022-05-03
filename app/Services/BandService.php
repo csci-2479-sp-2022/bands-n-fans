@@ -22,6 +22,25 @@ class BandService implements BandInterface
         return null;
     }
 
+
+/*     public function searchBandsByName(string $name): array
+    {
+        foreach (self::getBands() as $band) {
+            if ($band->name === $name) {
+                return $band;
+            }
+        }
+
+        return null;
+    } */
+
+    public function getBandsByUserId(int $id)
+    {
+        return Band::whereHas('fan', function($q) use($id){
+            $q->where('user_id', $id);
+        })->get();
+    }
+
     public function getBands(
         string $orderby = 'name',
         string $direction = 'asc',

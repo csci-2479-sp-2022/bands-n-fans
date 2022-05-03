@@ -34,7 +34,8 @@ class BandController extends Controller
         }
 
         return view('band-info', [
-             'band' => $this->bandService->getBandById($id) 
+             'band' => $this->bandService->getBandById($id),
+             'bands' => $this->bandService->getBands()
             ]);
     }
 
