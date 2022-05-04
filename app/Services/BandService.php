@@ -5,8 +5,8 @@ use App\Contracts\BandInterface;
 use App\Models\Band;
 use App\Models\Fan;
 use App\Models\Genre;
-use Illuminate\Http\Request;
 use App\Http\Requests\BandRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\SearchRequest;
 use Illuminate\Http\UploadedFile;
 

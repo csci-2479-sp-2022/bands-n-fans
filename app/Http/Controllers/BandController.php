@@ -64,7 +64,7 @@ class BandController extends Controller
         $band = Band::find($id);
         $fan = Fan::make([
             'user_id' => Auth::user()->id,
-            'band_id' => $band,
+            'band_id' => $band->id,
             'fan_since' => date('Y'),
         ]); 
         // $band->like(); 
