@@ -7,11 +7,10 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
-use Conner\Likeable\Likeable;
 
 class Band extends Model
 {
-    use HasFactory, Likeable;
+    use HasFactory;
 
     protected $fillable = [
         'name',
@@ -26,7 +25,7 @@ class Band extends Model
 
     public function fan()
     {
-        return $this->belongsToMany(User::class)->using(Fan::class);
+        return $this->belongsToMany(User::class);
     }
 
     //Commened out until we get it incorporated into app..lowering test coverage

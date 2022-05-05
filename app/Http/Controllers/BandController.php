@@ -62,13 +62,9 @@ class BandController extends Controller
     public function likeBand($id)
     {
         $band = Band::find($id);
-        $fan = Fan::make([
-            'user_id' => Auth::user()->id,
-            'band_id' => $band->id,
-            'fan_since' => date('Y'),
-        ]); 
-        // $band->like(); 
-        $fan->save();
+        $band->fan()->attach(Auth::user()->id, [
+            'fan_since' => now()->year,
+        ]);
 
         return redirect()->route('bands')->with('message','Band Like successfully!');
     }
@@ -76,9 +72,8 @@ class BandController extends Controller
     public function unlikeBand($id)
     {
         $band = Band::find($id);
-        $band->unlike();
-        $band->save();
-        
+        $band->fan()->detach(Auth::user()->id);
+
         return redirect()->route('bands')->with('message','Band Like undo successfully!');
     }
 

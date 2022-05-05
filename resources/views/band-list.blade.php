@@ -26,12 +26,12 @@
                             <div class="m-2 truncate px-2 basis-3/4">
                                 <div class="font-bold">
                                     <div class="text-2xl flex flex-row">
-                                        <div> 
+                                        <div>
                                         {{-- the name of the band --}}
                                         {{$band->name }}
                                         </div>
-                                        
-                                    
+
+
 
                                     </div>
                                     <div class="text-lg">
@@ -42,30 +42,32 @@
                                         <div class="w-auto text-left text-sm basis-3/4">
                                             {{-- this displays the number of fans that the band has --}}
                                             {{count($band->fan)}} Fans
-                                     
+
                                         </div>
+                                        @auth
                                         <div class="content-end basis-1/4">
                                             @if (in_array(Auth::user()->id,$band->fan->pluck('id')->toArray()))
-                                            <form action="{{ route('unlike.band', $band->id) }}"
-                                            method="post">
-                                            @csrf
-                                            <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                                            <span class="relative px-3 py-0.2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                            Unlike
-                                            </span>
-                                            </button>   
+                                                <form action="{{ route('unlike.band', $band->id) }}" method="post">
+                                                    @csrf
+                                                    <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                                                    <span class="relative px-3 py-0.2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                                    Unlike
+                                                    </span>
+                                                    </button>
+                                                </form>
                                             @else
-                                            <form action="{{ route('like.band', $band->id) }}"
-                                            method="post">
-                                            @csrf
-                                            <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                                            <span class="relative px-3 py-0.2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                                            Like
-                                            </span>
-                                            </button>
+                                                <form action="{{ route('like.band', $band->id) }}" method="post">
+                                                    @csrf
+                                                    <button class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                                                    <span class="relative px-3 py-0.2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                                    Like
+                                                    </span>
+                                                    </button>
+                                                </form>
                                             @endif
                                         </div>
-                                    </div>                              
+                                        @endauth
+                                    </div>
                                 </div>
                             </div>
                     </div>
@@ -77,7 +79,7 @@
             <div class="fixed text-center inline-block align-text-bottom h-12 text-4xl rounded-lg bg-purple-500 max-w-7xl mx-auto bottom-0 left-0 right-0">
               Bands & Fans website is home to {{count($bands)}} Bands!
             </div>
-        
+
 
 </x-slot>
 
