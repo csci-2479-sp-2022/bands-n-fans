@@ -25,7 +25,7 @@ class Band extends Model
 
     public function fan()
     {
-        return $this->belongsToMany(User::class)->using(Fan::class);
+        return $this->belongsToMany(User::class);
     }
 
     //Commened out until we get it incorporated into app..lowering test coverage

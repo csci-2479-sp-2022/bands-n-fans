@@ -28,6 +28,8 @@ Route::controller(BandController::class)->group(function() {
     Route::get('/bands/{id}', 'show')->name('bandByID');
     Route::get('/band', 'create')->name('bandregister');
     Route::post('/band', 'store');
+    Route::post('/like-band/{id}','likeBand')->name('like.band');
+    Route::post('/unlike-band/{id}','unlikeBand')->name('unlike.band');
 });
 
 Route::controller(SearchController::class)->group(function() {

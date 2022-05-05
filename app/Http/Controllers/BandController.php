@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Genre;
 use App\Models\Band;
+use App\Models\Fan;
 use App\Contracts\BandInterface;
 use App\Http\Requests\BandRequest;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Illuminate\Support\Facades\Auth;
 
 class BandController extends Controller
 {
@@ -56,4 +58,23 @@ class BandController extends Controller
         //redirect to the band list page
         return response()->redirectToRoute('bands');
     }
+
+    public function likeBand($id)
+    {
+        $band = Band::find($id);
+        $band->fan()->attach(Auth::user()->id, [
+            'fan_since' => now()->year,
+        ]);
+
+        return redirect()->route('bands')->with('message','Band Like successfully!');
+    }
+
+    public function unlikeBand($id)
+    {
+        $band = Band::find($id);
+        $band->fan()->detach(Auth::user()->id);
+
+        return redirect()->route('bands')->with('message','Band Like undo successfully!');
+    }
+
 }
